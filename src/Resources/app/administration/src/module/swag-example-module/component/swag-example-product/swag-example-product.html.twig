@@ -1,0 +1,12 @@
+{% block swag_example_product %}
+    <sw-card class="swag-example-product">
+        <div class="swag-example-product__media-container">
+            <img :src="mediaUrl" class="swag-example-product__media" />
+        </div>
+
+        <div class="swag-example-product__info-container">
+            <h2>{{ product.name }}</h2>
+            <p>Price: {{ price | currency('EUR') }}</p>
+        </div>
+    </sw-card>
+{% endblock %}

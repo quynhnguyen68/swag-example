@@ -1,0 +1,22 @@
+@import "~scss/variables";
+
+.swag-example-product {
+    .sw-card__content {
+        display: flex;
+        padding: 0;
+    }
+
+    &__media-container {
+        height: 100px;
+    }
+
+    &__media {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__info-container {
+        padding: 15px;
+    }
+}

@@ -1,0 +1,19 @@
+{% block swag_example_general %}
+    <sw-page class="swag-example-general">
+        <template #content>
+            <sw-loader v-if="isLoading"></sw-loader>
+
+            <div v-if="products.length && !isLoading" class="swag-example-general__product-list">
+                <swag-example-product
+                    v-for="product in products"
+                    :key="product.id"
+                    :product="product"
+                />
+            </div>
+
+            <div v-if="!products.length" class="swag-example-general__empty">
+                No product found
+            </div>
+        </template>
+    </sw-page>
+{% endblock %}

@@ -1,0 +1,26 @@
+{
+  "name": "swag-example-admin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "unit": "jest --config jest.config.js --ci",
+    "unit-watch": "jest --config jest.config.js --watch"
+  },
+  "author": "Quynh Nguyen",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
+    "@babel/preset-env": "^7.15.0",
+    "@shopware-ag/jest-preset-sw6-admin": "^2.0.0-beta.1",
+    "@vue/test-utils": "1.1.0",
+    "jest": "^26.4.2"
+  },
+  "dependencies": {
+    "core-js": "^3.16.3",
+    "vue-template-compiler": "2.6.10"
+  }
+}

@@ -1,0 +1,20 @@
+{% block swag_example_welcome %}
+    <div class="swag-example-welcome">
+        <h2 class="swag-example-welcome__message">
+            {{ message }}
+        </h2>
+
+        <sw-text-field
+            v-model="username"
+            label="Username"
+            placeholder="Enter your username"
+        />
+
+        <div
+            v-if="error"
+            class="swag-example-welcome__error"
+        >
+            Please enter a username with at least 7 letters.
+        </div>
+    </div>
+{% endblock %}

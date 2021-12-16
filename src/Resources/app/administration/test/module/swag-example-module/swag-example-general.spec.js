@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, createLocalVue } from '@vue/test-utils';
 
 // Test component
 import '../../../src/module/swag-example-module/page/swag-example-general';
@@ -36,13 +36,22 @@ const productData = [{
     }];
 
 function createWrapper(productData = []) {
+    const localVue = createLocalVue();
+
+    localVue.filter('currency', (currency) => currency);
+
     return shallowMount(Component.build('swag-example-general'), {
+        localVue,
         stubs: {
-            'swag-example-product': true,
+            // 'swag-example-product': true,
             'sw-page': {
                 template: '<div class="sw-page"><slot name="content"></slot></div>'
             },
-            'sw-loader': true
+            'sw-loader': true,
+            'swag-example-product': Shopware.Component.build('swag-example-product'),
+            'sw-card': {
+                template: '<div><slot></slot></div>'
+            }
         },
 
         provide: {
@@ -69,7 +78,8 @@ describe('component/swag-example-general', () => {
         expect(wrapper.find('.swag-example-general__empty').exists()).toBeFalsy();
         expect(wrapper.find('.swag-example-general__product-list').exists()).toBeTruthy();
 
-        const products = wrapper.findAll('swag-example-product-stub');
+        // const products = wrapper.findAll('swag-example-product-stub');
+        const products = wrapper.findAll('.swag-example-product');
 
         expect(products.length).toEqual(2);
     });
